@@ -9,6 +9,10 @@ app.get('/ping', (req, res) => {
     res.json({ message: 'Ping ping ping!'});
 });
 
+app.get('*', (_req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+  });
+
 app.listen(PORT, () => {
     console.log(`Server listening on ${PORT}`);
 });
